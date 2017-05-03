@@ -12,29 +12,29 @@ To Use:
 
 Example of a non-percolating grid:
 
-`var simulation = new Percolation(5, .5);
-simulation.logGrid();
-console.log(simulation.checkPerc());`
+`var simulation = new Percolation(5, .5);`
+`simulation.logGrid();`
+`console.log(simulation.checkPerc());`
 
-`[ [ [ ' ' ], [ 'X' ], [ ' ' ], [ ' ' ], [ 'X' ] ],
-   [ [ ' ' ], [ ' ' ], [ 'X' ], [ ' ' ], [ ' ' ] ],
-   [ [ 'X' ], [ 'X' ], [ ' ' ], [ ' ' ], [ 'X' ] ],
-   [ [ ' ' ], [ ' ' ], [ 'X' ], [ ' ' ], [ 'X' ] ],
-   [ [ 'X' ], [ ' ' ], [ 'X' ], [ 'X' ], [ 'X' ] ] ]`
+`[ [ [ ' ' ], [ 'X' ], [ ' ' ], [ ' ' ], [ 'X' ] ],`
+`  [ [ ' ' ], [ ' ' ], [ 'X' ], [ ' ' ], [ ' ' ] ],`
+`  [ [ 'X' ], [ 'X' ], [ ' ' ], [ ' ' ], [ 'X' ] ],`
+`  [ [ ' ' ], [ ' ' ], [ 'X' ], [ ' ' ], [ 'X' ] ],`
+`  [ [ 'X' ], [ ' ' ], [ 'X' ], [ 'X' ], [ 'X' ] ] ]`
 
 `false`
 
 Example of a percolating grid:
 
-`var simulation = new Percolation(5, .5);
-simulation.logGrid();
-console.log(simulation.checkPerc());`
+`var simulation = new Percolation(5, .5);`
+`simulation.logGrid();`
+`console.log(simulation.checkPerc());`
 
-`[ [ [ ' ' ], [ ' ' ], [ 'X' ], [ ' ' ], [ 'X' ] ],
-   [ [ 'X' ], [ ' ' ], [ 'X' ], [ ' ' ], [ 'X' ] ],
-   [ [ ' ' ], [ ' ' ], [ 'X' ], [ 'X' ], [ 'X' ] ],
-   [ [ ' ' ], [ ' ' ], [ ' ' ], [ 'X' ], [ 'X' ] ],
-   [ [ 'X' ], [ ' ' ], [ ' ' ], [ 'X' ], [ 'X' ] ] ]`
+`[ [ [ ' ' ], [ ' ' ], [ 'X' ], [ ' ' ], [ 'X' ] ],`
+`  [ [ 'X' ], [ ' ' ], [ 'X' ], [ ' ' ], [ 'X' ] ],`
+`  [ [ ' ' ], [ ' ' ], [ 'X' ], [ 'X' ], [ 'X' ] ],`
+`  [ [ ' ' ], [ ' ' ], [ ' ' ], [ 'X' ], [ 'X' ] ],`
+`  [ [ 'X' ], [ ' ' ], [ ' ' ], [ 'X' ], [ 'X' ] ] ]`
 
 `true`
 
