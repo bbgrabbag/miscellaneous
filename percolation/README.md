@@ -27,7 +27,6 @@ false`
 Example of a percolating grid:
 
 `var simulation = new Percolation(5, .5);
-
 simulation.logGrid();
 console.log(simulation.checkPerc());`
 

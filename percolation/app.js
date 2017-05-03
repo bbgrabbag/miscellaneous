@@ -81,8 +81,3 @@ var Percolation = function (n, prob) {
         console.log("");
     };
 };
-
-var simulation = new Percolation(7, .5);
-
-simulation.logGrid();
-console.log(simulation.checkPerc());
