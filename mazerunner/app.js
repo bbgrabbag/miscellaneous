@@ -1,15 +1,22 @@
-var Percolation = function (n, prob) {
+var Mazerunner = function (n, prob) {
     var id = [];
     var sz = [];
     var position = [];
+    var checked = [];
+    var start = Math.floor(Math.random() * n);
+    var end = Math.floor(Math.random() * n);
+    var queue = [start];
     for (let i = 0; i < (n * n); i++) {
         id[i] = i;
         sz[i] = 1;
-        position[i] = prob < Math.random() ? true : false;
+        position[i] = prob < Math.random();
+        checked[i] = false;
     };
+    position[start] = true;
+    position[end + (n * (n - 1))] = true;
     var root = function (p) {
         while (p !== id[p]) {
-            p = id[id[p]];
+            p = id[p];
         };
         return p;
     };
@@ -18,7 +25,7 @@ var Percolation = function (n, prob) {
             var pid = root(p);
             var jid = root(q);
             if (pid === jid) return id;
-            if (sz[pid] < sz[jid]) {
+            if (sz[pid] <= sz[jid]) {
                 id[pid] = jid;
                 sz[jid] += sz[pid];
             } else {
@@ -40,28 +47,32 @@ var Percolation = function (n, prob) {
     var connectRight = function (x) {
         union(x, x + 1);
     };
-    this.checkPerc = function () {
-
-        if (n === 1 && position[0]) return true;
-        for (let i = 0; i < (n * n); i++) {
-            if (!position[i]) continue;
-            if ((i - n >= 0)) {
-                connectTop(i);
+    this.checkForPath = function () {
+        while (queue.length) {
+            nextUp = queue.shift();
+            checked[nextUp] = true;
+            if ((nextUp - n >= 0) && position[nextUp - n] && !checked[nextUp - n]) {
+                connectTop(nextUp);
+                queue.push(nextUp - n);
             };
-            if (!(i % n === 0)) {
-                connectLeft(i);
+            if (!(nextUp % n === 0) && position[nextUp - 1] && !checked[nextUp - 1]) {
+                connectLeft(nextUp);
+                queue.push(nextUp - 1);
             };
-            if (!((i + 1) % n === 0)) {
-                connectRight(i);
+            if (!((nextUp + 1) % n === 0) && position[nextUp + 1] && !checked[nextUp + 1]) {
+                connectRight(nextUp);
+                queue.push(nextUp + 1);
             };
-            if ((i + n) < (n * n)) {
-                connectBottom(i);
+            if ((nextUp + n) < (n * n) && position[nextUp + n] && !checked[nextUp + n]) {
+                connectBottom(nextUp);
+                queue.push(nextUp + n);
             };
-            if ((i >= n * (n - 1)) && id[i] < n) return true;
-        }
+        };
+        console.log("Root of start:" + id[start]);
+        console.log("Root of finish: " + id[end + (n * (n - 1))]);
+        if (id[start] === id[end + (n * (n - 1))]) return true;
         return false;
     }
-
     this.logId = function (x) {
         console.log(`id(${x}): ${id[x]}`);
     }
@@ -76,8 +87,11 @@ var Percolation = function (n, prob) {
                 position[(n * i) + j] ? grid[i].push([" "]) : grid[i].push(["X"]);
             };
         }
+        grid[0][start][0] = "S";
+        grid[n - 1][end][0] = "F";
         console.log("");
         console.log(grid);
         console.log("");
     };
 };
+
