@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    height: 100vh;
+}
+
+.row-custom {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.clicker-wrapper {
+    margin: auto;
+}
+
+.clicker,
+.counter {
+    text-align: center;
+}
+
+.red {
+    color: white !important;
+}
+
+.blue {
+    color: white !important;
+}
+
+.btn-custom {
+    font-weight: 900;
+    border: 1px dotted silver;
+}
+
+.red :focus {
+    color: white;
+    background-color: red;
+}
+
+.red :hover {
+    color: red;
+    background-color: white !important;
+}
+
+.blue :focus {
+    color: white;
+    background-color: red;
+}
+
+.blue :hover {
+    color: blue;
+    background-color: white !important;
+}
+
+.bar {
+    position: absolute;
+    height: 15px;
+    border: 2px double white;
+}
+
+.red-bar {
+    background-color: red;
+    width: 100%;
+}
+
+.blue-bar {
+    background-color: blue;
+}
